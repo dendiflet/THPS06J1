@@ -25,5 +25,15 @@ class User < ApplicationRecord
 
     has_many :created_events, class_name: "Event", foreign_key: 'admin_id', dependent: :destroy 
 
+#################### MAILER ################
+
+  after_create :welcome_send
+
+  def welcome_send
+    UserMailer.welcome_email(self).deliver_now
+  end
+
+
+###############################################
 
 end
