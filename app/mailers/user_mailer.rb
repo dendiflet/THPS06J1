@@ -15,6 +15,7 @@ class UserMailer < ApplicationMailer
   def more_participant_email(event, creator, participant)
     #on récupère les instance pour les passer a la view
     @event = event
+    @nb = event.users.length
     @creator = creator 
     @participant = participant
     #on définit une variable @url qu'on utilisera dans la view d’e-mail
