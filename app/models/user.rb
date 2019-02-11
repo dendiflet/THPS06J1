@@ -18,6 +18,8 @@ class User < ApplicationRecord
     format: { with: VALID_EMAIL_REGEX },
     uniqueness: { case_sensitive: false }
 
+    has_many :attendances, dependent: :destroy
+    has_many :events, dependent: :destroy
 
 
 end

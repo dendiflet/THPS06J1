@@ -4,6 +4,10 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
 
 
+# clean de la database svp!
+User.destroy_all
+
+
   before(:each) do
 		@valid_user = User.create!(
 			first_name: "first_name", 

@@ -16,7 +16,11 @@ Event.destroy_all
 Attendance.destroy_all
 
 
-#create 5 users from same house
+#create 5 users from same house + the test user
+
+@valid_user = User.create!(first_name: "first_name", last_name: "last_name", email: "mail@yopmail.com")
+
+
 User.create!(
 	first_name: "yaya", 
 	last_name: "timbre", 
