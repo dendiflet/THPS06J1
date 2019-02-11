@@ -21,7 +21,7 @@ Attendance.destroy_all
 			duration: "90" ,
 			price: "5" ,
 			location: "V-B" ,
-			user: @valid_user)
+			admin_id: @valid_user.id)
 		
 		@valid_attendance = Attendance.create!(
 			user: @valid_user,

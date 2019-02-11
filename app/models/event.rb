@@ -9,7 +9,7 @@ class Event < ApplicationRecord
     length: { in: 20..1000 }
 
 
-	validates :start_date, 
+	validates :start_date,
 		presence: true
 
 
