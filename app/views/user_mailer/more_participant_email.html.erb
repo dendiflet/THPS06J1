@@ -4,9 +4,9 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Salut <%= @user.first_name %> et bienvenue dans mon appli de la mort qui tue !</h1>
+    <h1>Salut <%= @creator.first_name %> !</h1>
     <p>
-      Tu t'es inscrit sur mon appli pas finie en utilisant l'e-mail suivant : <%= @user.email %>.
+      Petit mail pour te dire que  <%= @participant.first_name %> va venir a ton super evenement : "<%= @event.title %>" !
     </p>
     <p>
       Pour accéder à ton espace, connecte-toi via : <%= @url %>.

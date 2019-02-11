@@ -6,7 +6,7 @@ Rails.application.configure do
 config.action_mailer.perform_deliveries = true
 
 # cette ligne est a mettre en sourdine si envoi de vrai mail (en prod quoi!)
-config.action_mailer.delivery_method = :letter_opener
+#config.action_mailer.delivery_method = :letter_opener
 
 ###########################################################
 

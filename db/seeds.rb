@@ -68,4 +68,3 @@ Attendance.create!(user_id: 2, event_id: 1)
 Attendance.create!(user_id: 3, event_id: 1)
 
 
-
