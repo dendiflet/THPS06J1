@@ -26,7 +26,7 @@ class Event < ApplicationRecord
 		presence: true
 
   has_many :attendances, dependent: :destroy
-  belongs_to :user
+  belongs_to :admin, class_name: "User"
 
 
 # methode intéressantes pour plus tard?

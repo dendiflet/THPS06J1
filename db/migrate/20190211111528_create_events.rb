@@ -7,7 +7,7 @@ class CreateEvents < ActiveRecord::Migration[5.2]
       t.integer :duration, validates: true
       t.integer :price, validates: true
       t.string :location, validates: true
-      t.belongs_to :user, index: true
+      t.belongs_to :admin, index: true
 
 
       t.timestamps

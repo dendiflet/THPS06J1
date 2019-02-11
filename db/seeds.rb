@@ -59,7 +59,7 @@ User.create!(
 
 
 # saturday nigth diner fever at V-B créer par yaya user_id = 1
-Event.create!(title: "diner",description: "la bonne bouffe a VB",start_date: "17/02/2019",duration: "90" ,price: "5" ,location: "V-B" ,user_id: "1")
+Event.create!(title: "diner",description: "la bonne bouffe a VB",start_date: "17/02/2019",duration: "90" ,price: "5" ,location: "V-B" ,admin_id: @valid_user.id)
 
 
 # inscription des 3 premières personnes de la table, les deux autres inscriptions possible sont laissées vacantes pour les tests consoles

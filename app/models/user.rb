@@ -19,7 +19,11 @@ class User < ApplicationRecord
     uniqueness: { case_sensitive: false }
 
     has_many :attendances, dependent: :destroy
-    has_many :events, dependent: :destroy
+
+
+
+
+    has_many :created_events, class_name: "Event", foreign_key: 'admin_id', dependent: :destroy 
 
 
 end
