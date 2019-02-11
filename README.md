@@ -1,24 +1,23 @@
-# README
+### salut
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+petit readme dégeulasse pour dire :
 
-Things you may want to cover:
+23/23 test sont ok,
+tout les attributs de user et event sont testé et meme un petit attendance
 
-* Ruby version
+il y a un user admin par event (event dépendant)
 
-* System dependencies
+donc possibilité de faire
+`@user.created_event`
+et son reverse
 
-* Configuration
 
-* Database creation
+et sinon, c'est des users basiques
 
-* Database initialization
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+travail fait en équipe de 1 !
 
-* Deployment instructions
 
-* ...
+
+
