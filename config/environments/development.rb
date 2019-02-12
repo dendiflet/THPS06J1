@@ -8,6 +8,8 @@ config.action_mailer.perform_deliveries = true
 # cette ligne est a mettre en sourdine si envoi de vrai mail (en prod quoi!)
 #config.action_mailer.delivery_method = :letter_opener
 
+# ligne ajoutée pour devise
+config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 ###########################################################
 
   # In the development environment your application's code is reloaded on
