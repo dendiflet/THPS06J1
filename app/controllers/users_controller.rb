@@ -1,6 +1,14 @@
 class UsersController < ApplicationController
 
-  
+# before_action :is_admin?, only: [:show, :edit]  
+
+#   def is_admin?
+#     @user = current_user
+#     post_params = params.permit(:id)
+#     @user.id == post_params
+#   end
+
+
   def index
     # Méthode qui récupère tous les potins et les envoie à la view index (index.html.erb) pour affichage
   end
@@ -13,7 +21,7 @@ class UsersController < ApplicationController
   end
 
   def new
-    # Méthode qui crée un potin vide et l'envoie une view qui affiche le formulaire pour 'le remplir' (new.html.erb)
+    # géré par devise
   end
 
   def create

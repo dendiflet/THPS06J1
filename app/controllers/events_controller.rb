@@ -9,7 +9,7 @@ class EventsController < ApplicationController
   end
 
   def is_admin?
-    post_prams = params.permit(:id)
+    post_params = params.permit(:id)
     @one_event = Event.find_by(id: params[:id])
     @user.id == @one_event.admin_id
   end
@@ -28,12 +28,11 @@ class EventsController < ApplicationController
   def show
     @user = current_user
     # Méthode qui récupère le potin concerné et l'envoie à la view show (show.html.erb) pour affichage
-    post_prams = params.permit(:id)
+    post_params = params.permit(:id)
     @one_event = Event.find_by(id: params[:id])
     @end_date = end_date
     @admin = is_admin?
     @nb_participant = @one_event.users.length
-    byebug
   end
 
   def new
