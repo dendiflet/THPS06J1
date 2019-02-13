@@ -8,11 +8,6 @@ class EventsController < ApplicationController
     @user = current_user
   end
 
-  def is_admin?
-    post_params = params.permit(:id)
-    @one_event = Event.find_by(id: params[:id])
-    @user.id == @one_event.admin_id
-  end
 
   def end_date
    @one_event.start_date + @one_event.duration
@@ -33,6 +28,9 @@ class EventsController < ApplicationController
     @end_date = end_date
     @admin = is_admin?
     @nb_participant = @one_event.users.length
+    @subscriber = is_user_new_for_event?
+    
+    byebug
   end
 
   def new

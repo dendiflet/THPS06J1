@@ -27,5 +27,8 @@
 <p class="btn btn-primary text-center"><%= link_to "Edit", edit_event_path%> </p>
 <% end %>
 
+ <% if @subscriber %>
+<p class="btn btn-primary text-center"><%= link_to "inscrit toi !", new_participation_path%> </p>
+<% end %>
 
 </span>
