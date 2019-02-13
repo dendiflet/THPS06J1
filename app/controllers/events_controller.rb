@@ -1,6 +1,20 @@
 class EventsController < ApplicationController
 
-	def index
+  before_action :authenticate_user!, only: [:show, :update, :new, :create]
+
+
+
+  def actual_user?
+    @user = current_user
+  end
+
+  def is_admin?
+#    current_user = 
+  end
+
+
+
+  def index
     @event = Event.all
     @user = current_user
     session[:user] = @user
@@ -51,8 +65,5 @@ class EventsController < ApplicationController
     # Une fois la suppression faite, on redirige généralement vers la méthode index (pour afficher la liste à jour)
   end
 
-# def current_user
-#       @user = current_user
-# end
 
 end

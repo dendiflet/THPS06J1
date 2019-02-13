@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-	    @user = current_user
 
   
   def index
@@ -7,6 +6,9 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = current_user
+    @event_owned = @user.created_events
+
     # Méthode qui récupère le potin concerné et l'envoie à la view show (show.html.erb) pour affichage
   end
 
