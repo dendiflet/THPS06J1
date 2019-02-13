@@ -1,4 +1,11 @@
-### salut ho grand correcteur
+### salut ho! grand correcteur
+
+
+lien de l'appli en production
+https://yaya-envent-brite.herokuapp.com/
+
+
+
 
 petit readme dégeulasse pour dire :
 

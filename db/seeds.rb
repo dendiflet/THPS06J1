@@ -18,43 +18,43 @@ Attendance.destroy_all
 
 #create 5 users from same house + the test user
 
-@valid_user = User.create!(first_name: "first_name", last_name: "last_name", email: "mail@yopmail.com")
+@valid_user = User.create!(first_name: "first_name", last_name: "last_name", email: "mail@yopmail.com", password: "azeaze")
 
 
 User.create!(
 	first_name: "yaya", 
 	last_name: "timbre", 
-	email: "yaya38@yopmail.com"
+	email: "yaya38@yopmail.com", password: "azeaze"
 	)
 
 User.create!(
 	first_name: "rory", 
 	last_name: "kiwi", 
-	email: "rory38@yopmail.com"
+	email: "rory38@yopmail.com", password: "azeaze"
 	)
 
 User.create!(
 	first_name: "loulou", 
 	last_name: "steezy", 
-	email: "steezy38@yopmail.com"
+	email: "steezy38@yopmail.com", password: "azeaze"
 	)
 
 User.create!(
 	first_name: "gaelle", 
 	last_name: "mamie", 
-	email: "mamie38@yopmail.com"
+	email: "mamie38@yopmail.com", password: "azeaze"
 	)
 
 User.create!(
 	first_name: "nico", 
 	last_name: "lostesso", 
-	email: "lostesso38@yopmail.com"
+	email: "lostesso38@yopmail.com", password: "azeaze"
 	)
 
 User.create!(
 	first_name: "louisa", 
 	last_name: "taketrainsfornoobs", 
-	email: "louisa38@yopmail.com"
+	email: "louisa38@yopmail.com", password: "azeaze"
 	)
 
 

@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
-	def index
+	    @user = current_user
+
+  
+  def index
     # Méthode qui récupère tous les potins et les envoie à la view index (index.html.erb) pour affichage
   end
 

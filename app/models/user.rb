@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
 
 # ho, tout en minuscule ;-)
   before_save { self.email = email.downcase }
@@ -6,11 +10,6 @@ class User < ApplicationRecord
 # magie noire pour le format de l'email
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
-	validates :first_name, 
-	  presence: true
-
-	validates :last_name, 
-	  presence: true
 
   validates :email, 
     presence: true, 
@@ -34,7 +33,12 @@ class User < ApplicationRecord
     UserMailer.welcome_email(self).deliver_now
   end
 
-
+  
 ###############################################
+
+
+
+
+
 
 end

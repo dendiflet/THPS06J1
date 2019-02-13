@@ -34,45 +34,35 @@
     </ul>
   </div>
 
-<ul class="nav nav-pills">
+  <ul class="nav nav-pills">
 
-  <% if session[:user_id] == nil %>
+    <% if user_signed_in? != true %>
 
-  <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">unconnected</a>
-    <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 40px, 0px);">
-      <a class="dropdown-item" href="#">S'inscrire</a>
-      <a class="dropdown-item" href="#">Se connecter</a>
-    </div>
-  </li>
-
-  <% else %>  
-
-  <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">connected</a>
-    <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 40px, 0px);">
-      <a class="dropdown-item" href="#">Edit your profile</a>
-      <a class="dropdown-item" href="#">Deconnection</a>
-    </div>
-  </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">unconnected</a>
+      <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 40px, 0px);">
+        <p class="dropdown-item" ><%= link_to "connection" , new_user_session_path %></p>
+        <p class="dropdown-item"><%= link_to "registration", new_user_registration_path %></p>
+      </div>
+    </li>
 
 
-  <% end %>
+    <% else %>  
 
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">connected</a>
+      <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 40px, 0px);">
+        <a class="dropdown-item" href=<%= link_to user_path(@user.id) %>>show my profile</a>
+        <a class="dropdown-item" href="#">Deconnection</a>
+      </div>
+    </li>
 
+    <% end %>
 
-
-</ul>
-
-
-
-
-
-
+  </ul>
 
 </nav>
 
-    <h1>Hello, world!</h1>
 
 
 
