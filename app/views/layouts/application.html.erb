@@ -52,8 +52,8 @@
     <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">connected</a>
       <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 40px, 0px);">
-        <p class="dropdown-item"><%= link_to "my profile", user_path(@user.id) %></p>
-        <p class="dropdown-item" >Deconnection</p>
+        <a class="dropdown-item"><%= link_to "my profile", user_path(@user.id) %></a>
+        <a class="dropdown-item" ><%= link_to('Logout', destroy_user_session_path, method: :delete) %></a>
       </div>
     </li>
 

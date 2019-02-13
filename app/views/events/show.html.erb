@@ -1,17 +1,31 @@
-
+<span class="text-center">
 
 <h1> Titre: <%= @one_event.title %> </h1>
-<h4> Auteur :</h4>
-<p> <%= @one_event.admin.first_name %></p>
-<h5> titre:</h5>
+
+<h3> titre:</h3>
 <p> <%= @one_event.title %></p>
 <h5> Description :</h5>
 <p> <%= @one_event.description %></p>
 <h5> date:</h5>
 <p> <%= @one_event.start_date %></p>
+<h5> date de fin:</h5>
+<p> <%= @end_date %></p>
 <h5> endroit :</h5>
 <p> <%= @one_event.location %></p>
 <h5> prix:</h5>
 <p> <%= @one_event.price %></p>
 
+<h2> cet évenement a été crée par :</h2>
+<p> <%= @one_event.admin.first_name %></p>
 
+<h2>Il y a pour le moment :</h2>
+<p><%= @nb_participant %> participant(s)</p>
+
+
+
+<% if @admin %>
+<p class="btn btn-primary text-center"><%= link_to "Edit", edit_event_path%> </p>
+<% end %>
+
+
+</span>

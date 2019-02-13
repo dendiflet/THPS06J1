@@ -23,6 +23,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = current_user    
     # Méthode qui récupère le potin concerné et l'envoie à la view edit (edit.html.erb) pour affichage dans un formulaire d'édition
   end
 
