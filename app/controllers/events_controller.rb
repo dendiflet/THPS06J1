@@ -10,7 +10,7 @@ class EventsController < ApplicationController
 
 
   def end_date
-   @one_event.start_date + @one_event.duration
+   @event.start_date + @event.duration
   end
 
 
@@ -22,15 +22,15 @@ class EventsController < ApplicationController
 
   def show
     @user = current_user
-    # Méthode qui récupère le potin concerné et l'envoie à la view show (show.html.erb) pour affichage
     post_params = params.permit(:id)
-    @one_event = Event.find_by(id: params[:id])
+    @event = Event.find_by(id: params[:id])
     @end_date = end_date
     @admin = is_admin?
-    @nb_participant = @one_event.users.length
-    @subscriber = is_user_new_for_event?
-    
-    byebug
+    @nb_participant = @event.users.length
+    @subscriber = can_subscribe_for_event?
+    puts "@"*60
+    puts "ici la page show d'un event"
+    puts "@"*60    
   end
 
   def new

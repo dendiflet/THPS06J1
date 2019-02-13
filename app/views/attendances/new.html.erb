@@ -1,8 +1,10 @@
 <span class="text-center">
-
+<!-- byebug -->
 <h1> Titre: <%= @event.title %> </h1>
 
 <h3> titre:</h3>
+<button class="btn btn-primary" data-confirm="Etes-vous sûr ?" type="submit">GO !</button>
+</form>
 <p> <%= @event.title %></p>
 <h5> Description :</h5>
 <p> <%= @event.description %></p>
@@ -18,21 +20,10 @@
 <h2> cet évenement a été crée par :</h2>
 <p> <%= @event.admin.first_name %></p>
 
-<h2>Il y a pour le moment :</h2>
-<p><%= @nb_participant %> participant(s)</p>
+
+<h1> Tu veux vraiment t'inscrire ? </h1>
+<form class="needs-validation" novalidate>
 
 
-
-<% if @admin %>
-<p class="btn btn-primary text-center"><%= link_to "Edit", edit_event_path%> </p>
-<% end %>
-
- <% if @subscriber %>
-<p class="btn btn-primary"><%= link_to "inscrit toi !", {:controller => "attendances", :action => "new", :event => @event.id }%></p>
-<% end %>
 
 </span>
-
-
-
-<!-- link_to "inscrit toi !", new_attendance_path(@event.id)--> 

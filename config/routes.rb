@@ -6,7 +6,7 @@ root 'events#index'
 
 resources :events
 resources :users, only: [:show, :edit]
-
+resources :attendances, only: [:new, :create]
 
 
 end
