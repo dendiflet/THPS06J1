@@ -17,7 +17,6 @@ class EventsController < ApplicationController
   def index
     @event = Event.all
     @user = current_user
-#    session[:user] = @user
   end
 
   def show
