@@ -62,7 +62,6 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    byebug
     Event.find_by(id: params[:id]).destroy
     flash[:success] = "Ton event a bien été supprimé."
     redirect_to root_path

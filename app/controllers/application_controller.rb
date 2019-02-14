@@ -22,7 +22,6 @@ private
     post_params = params.permit(:id)
     event = Event.find_by(id: params[:id])
     @user.id == event.admin_id
-
   end 
 
   def already_subscribed?

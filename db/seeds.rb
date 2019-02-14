@@ -70,3 +70,10 @@ Event.create!(title: "dodo de fou",description: "car a un moment il faut aller d
 end
 
 
+
+
+
+
+
+
+

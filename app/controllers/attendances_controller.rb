@@ -16,25 +16,39 @@ class AttendancesController < ApplicationController
   def new
     post_params = params.permit(:event)
     @event = Event.find_by(id: params[:event])
-#    @new_inscription_to_the_event = Attendance.new
     @user = current_user
   end
 
-  def create 
-    @new_attendance = Attendance.new
-    params.require(:attendances).permit(:event_id)
-    @event = Event.find_by(id: params[:attendances][:event_id])
+  def create
+    params.permit(:event)
 
-    @new_attendance.user_id = current_user.id
-    @new_attendance.event_id = @event.id
 
-    if @new_attendance.save!
-      flash[:success] = "tu est bien inscrit a l'evenement, a bientot!"
+    @event = Event.find(params[:event])
+    @amount = (@event.price) * 100
+
+    customer = Stripe::Customer.create(
+      :email => params[:stripeEmail],
+      :source  => params[:stripeToken]
+    )
+    charge = Stripe::Charge.create(
+      :customer    => customer.id,
+      :amount      => @amount,
+      :description => 'Rails Stripe customer',
+      :currency    => 'eur'
+    )
+
+    @attendance = Attendance.new(stripe_customer_id: charge[:customer], event_id: @event.id, user_id: current_user.id)
+
+    if @attendance.save 
+      flash[:success] = "Vous êtes bien inscrit à l'événement !"
       redirect_to event_path(@event.id)
     else
-      flash[:warning] = "tu n'est pas inscrit a l'evenement !"
-      redirect_to root_path
+      render 'new'
     end
+
   end
+
+
+
 
 end
