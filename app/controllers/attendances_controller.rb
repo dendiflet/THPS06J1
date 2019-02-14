@@ -1,6 +1,16 @@
 class AttendancesController < ApplicationController
 
   def index
+    post_params = params.permit(:event)
+    puts "@"*60
+    @user = current_user
+    @event = Event.find_by(id: params[:event])
+    @admin = @user.id == @event.admin_id
+
+
+
+    puts "@"*60
+    @paticipants_group = Attendance.where(event_id: params[:event])    
   end
 
   def show
@@ -10,12 +20,9 @@ class AttendancesController < ApplicationController
 
   def new
     post_params = params.permit(:event)
-    @event = Event.all.find_by(id: params[:event])
+    @event = Event.find_by(id: params[:event])
 #    @new_inscription_to_the_event = Attendance.new
     @user = current_user
-    puts "@"*60
-    puts "ici la page d'inscription"
-    puts "@"*60
   end
 
   def create 
@@ -25,18 +32,11 @@ class AttendancesController < ApplicationController
 
     @new_attendance.user_id = current_user.id
     @new_attendance.event_id = @event.id
-    puts "@"*60
-    puts "bientot ton enregistrement a l'evenement"    
-    puts "@"*60
+
     if @new_attendance.save!
-      puts "@"*60
-      puts "inscrit"
-      puts "@"*60
+      # penser a mettre un msg flash un jour
       redirect_to event_path(@event.id)
     else
-      puts "@"*60
-      puts "ici ca devrait jamais venir"
-      puts "@"*60
       redirect_to root_path
     end
   end

@@ -55,17 +55,26 @@ class EventsController < ApplicationController
 
 
   def edit
+
     post_prams = params.permit(:id)
     @user = current_user
-    @one_event = Event.find_by(id: params[:id])
+    @event_to_update = Event.find_by(id: params[:id])
 
 
   end
 
   def update
-    # Méthode qui met à jour le potin à partir du contenu du formulaire de edit.html.erb, soumis par l'utilisateur
-    # pour info, le contenu de ce formulaire sera accessible dans le hash params
-    # Une fois la modification faite, on redirige généralement vers la méthode show (pour afficher le potin modifié)
+    posted_params = params.permit(:event)
+    params.permit(:id)
+    @id = params[:id]
+        @event_to_update = Event.find_by(id: @id)
+    if @event_to_update.update(title: params[:event][:title],description: params[:event][:description],start_date: params[:event][:start_date],duration: params[:event][:duration],price: params[:event][:price],location: params[:event][:location])
+      flash[:success] = "Ton évenement a bien été modifié !"
+      redirect_to event_path(@id)
+    else
+      render :edit
+    end
+
   end
 
   def destroy
@@ -75,3 +84,49 @@ class EventsController < ApplicationController
 
 
 end
+
+
+  # @gossip_to_update = Gossip.find_by(id:  params[:id])
+  #   posted_params = params.require(:gossip).permit(:title, :content)
+
+  # if @gossip_to_update.update(posted_params)
+  #   flash[:success] = "Ton gossip a bien été modifié !"
+  #   redirect_to gossip_path
+  # else
+  #   render :edit
+  # end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

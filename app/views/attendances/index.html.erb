@@ -1,0 +1,22 @@
+
+<% if @admin %>
+<p class="btn btn-primary text-center">
+	<%= link_to "modifie l'évenement", {:controller => "events", :action => "edit", :id => @event.id }%> </p>
+<% end %>
+
+<div class="row">
+
+<% @paticipants_group.each do |i| %>
+<div class="card col-sm-3 text-center">
+  <div class="card-header">
+    <p>Participant n°<%= i.id %></p>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">c'est qui? : <%= i.user.first_name %></h5>
+    <p class="card-text">email : <%= i.user.email %></p>
+  </div>
+</div>
+<% end %>
+
+</div>
+

@@ -24,11 +24,13 @@
 
 
 <% if @admin %>
-<p class="btn btn-primary text-center"><%= link_to "Edit", edit_event_path%> </p>
+<p class="btn btn-primary text-center">
+	<%= link_to "liste des participants", {:controller => "attendances", :action => "index", :event => @event.id }%> </p>
 <% end %>
 
  <% if @subscriber %>
-<p class="btn btn-primary"><%= link_to "inscrit toi !", {:controller => "attendances", :action => "new", :event => @event.id }%></p>
+<p class="btn btn-primary">
+	<%= link_to "inscrit toi !", {:controller => "attendances", :action => "new", :event => @event.id }%></p>
 <% end %>
 
 </span>
