@@ -2,17 +2,13 @@ class EventsController < ApplicationController
 
   before_action :authenticate_user!, only: [:show, :update, :new, :create]
 
-#  before_action :is_admin?, only: [:edit]
-
   def actual_user?
     @user = current_user
   end
 
-
   def end_date
    @event.start_date + @event.duration
   end
-
 
   def index
     @event = Event.all
@@ -26,11 +22,7 @@ class EventsController < ApplicationController
     @end_date = end_date
     @admin = is_admin?
     @nb_participant = @event.users.length
-    @subscriber = can_subscribe_for_event?
-    puts "@"*60
-    params
-    puts "ici la page show d'un event"
-    puts "@"*60    
+    @subscriber = can_subscribe_for_event?  
   end
 
   def new
@@ -45,23 +37,15 @@ class EventsController < ApplicationController
     @event.admin_id = @user.id
 
     if @event.save!
-      puts "@"*60
-      puts "evenement créé"
-      puts "@"*60
-      #flash[:success] = "Compte créé !"
+      flash[:success] = "Evenement créé !"
       redirect_to event_path(@event)  #faudrait rediriger ailleurs
     end
   end
 
-
-
   def edit
-
     post_prams = params.permit(:id)
     @user = current_user
     @event = Event.find_by(id: params[:id])
-
-
   end
 
   def update
@@ -75,33 +59,16 @@ class EventsController < ApplicationController
     else
       render :edit
     end
-
   end
 
   def destroy
     byebug
     Event.find_by(id: params[:id]).destroy
-
-    puts "@"*60
-    puts "attention ca va supprimer !"
-    flash[:success] = "Ton gossip a bien été supprimé."
-    puts "@"*60
+    flash[:success] = "Ton event a bien été supprimé."
     redirect_to root_path
   end
 
-
 end
-
-
-  # @gossip_to_update = Gossip.find_by(id:  params[:id])
-  #   posted_params = params.require(:gossip).permit(:title, :content)
-
-  # if @gossip_to_update.update(posted_params)
-  #   flash[:success] = "Ton gossip a bien été modifié !"
-  #   redirect_to gossip_path
-  # else
-  #   render :edit
-  # end
 
 
 

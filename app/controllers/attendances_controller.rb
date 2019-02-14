@@ -2,14 +2,9 @@ class AttendancesController < ApplicationController
 
   def index
     post_params = params.permit(:event)
-    puts "@"*60
     @user = current_user
     @event = Event.find_by(id: params[:event])
     @admin = @user.id == @event.admin_id
-
-
-
-    puts "@"*60
     @paticipants_group = Attendance.where(event_id: params[:event])    
   end
 
@@ -34,9 +29,10 @@ class AttendancesController < ApplicationController
     @new_attendance.event_id = @event.id
 
     if @new_attendance.save!
-      # penser a mettre un msg flash un jour
+      flash[:success] = "tu est bien inscrit a l'evenement, a bientot!"
       redirect_to event_path(@event.id)
     else
+      flash[:warning] = "tu n'est pas inscrit a l'evenement !"
       redirect_to root_path
     end
   end
