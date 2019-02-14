@@ -1,3 +1,21 @@
 <h1>Page d'édition de ton profil</h1>
 
 <h1> Page en création, reviens plus tard</h1>
+
+
+<div class='container mt-4'>
+<%= form_for @user, :url => { :action => :update } do |f| %>
+<label> Nom</label>
+  <%= f.text_field :first_name %>
+  <p>
+<label>Prénom</label>
+  <%= f.text_area :last_name %>
+  <p>
+<label>Description</label>
+  <%= f.text_field :description %>
+</p>
+<div class="form-group">
+  <button type="submit" class="btn btn-primary">Enregistrer les modifications</button>
+</div>
+<% end %>
+</div>

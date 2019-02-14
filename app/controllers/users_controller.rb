@@ -19,12 +19,22 @@ class UsersController < ApplicationController
 
   def edit
     @user = current_user    
-    flash[:success] = "Ton profil a bien été maj !"
+
 
   end
 
   def update
+    edit_params = params.require(:user).permit(:description, :first_name, :last_name)
+    posted_params = params.permit(:user)
+    @user = User.find_by(id: current_user.id)
+    byebug
+    if @user.update(edit_params)
     flash[:success] = "Ton profil a bien été maj !"
+    redirect_to root_path
+    else
+      flash[:warning] = "Essaye encore!" 
+      render :edit
+    end
   end
 
   def destroy
