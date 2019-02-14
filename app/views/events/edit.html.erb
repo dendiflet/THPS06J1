@@ -1,7 +1,7 @@
 <h1> editer un evenement </h1>
 
 <p> je sais c'est moche comme front </p>
-<%= form_for @event_to_update do |f| %>
+<%= form_for @event do |f| %>
 <label> titre</label>
   <%= f.text_field :title %>
   <p>
@@ -23,5 +23,5 @@
 <div class="form-group">
   <button type="submit" class="btn btn-primary">Modifier</button>
 </div>
-
+<p class="btn btn-primary"> <%= link_to "effacer l'evenement", event_path(@event.id), method: :delete, data: { confirm: 'Are you sure?' }%> </p>
 <% end %>

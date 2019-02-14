@@ -59,12 +59,14 @@ User.create!(
 
 
 # saturday nigth diner fever at V-B créer par yaya user_id = 1
-Event.create!(title: "diner",description: "la bonne bouffe a VB",start_date: "17/02/2019",duration: "90" ,price: "5" ,location: "V-B" ,admin_id: @valid_user.id)
+Event.create!(title: "diner",description: "la bonne bouffe a VB",start_date: "17/02/2019",duration: "90" ,price: "5" ,location: "V-B" ,admin_id: User.all.sample.id)
+Event.create!(title: "paraplante",description: "découvre les joie du vol",start_date: "17/02/2019",duration: "360" ,price: "5" ,location: "V-B" ,admin_id: User.all.sample.id)
+Event.create!(title: "branlette",description: "les joie de l'onnanisme",start_date: "17/02/2019",duration: "90" ,price: "5" ,location: "V-B" ,admin_id: User.all.sample.id)
+Event.create!(title: "dodo de fou",description: "car a un moment il faut aller dormir",start_date: "17/02/2019",duration: "90" ,price: "5" ,location: "V-B" ,admin_id: User.all.sample.id)
 
 
-# inscription des 3 premières personnes de la table, les deux autres inscriptions possible sont laissées vacantes pour les tests consoles
-Attendance.create!(user_id: 1, event_id: 1)
-Attendance.create!(user_id: 2, event_id: 1)
-Attendance.create!(user_id: 3, event_id: 1)
+12.times do
+ Attendance.create!(user_id: User.all.sample.id, event_id: Event.all.sample.id)
+end
 
 

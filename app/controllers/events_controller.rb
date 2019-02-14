@@ -28,6 +28,7 @@ class EventsController < ApplicationController
     @nb_participant = @event.users.length
     @subscriber = can_subscribe_for_event?
     puts "@"*60
+    params
     puts "ici la page show d'un event"
     puts "@"*60    
   end
@@ -58,7 +59,7 @@ class EventsController < ApplicationController
 
     post_prams = params.permit(:id)
     @user = current_user
-    @event_to_update = Event.find_by(id: params[:id])
+    @event = Event.find_by(id: params[:id])
 
 
   end
@@ -78,8 +79,14 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    # Méthode qui récupère le potin concerné et le détruit en base
-    # Une fois la suppression faite, on redirige généralement vers la méthode index (pour afficher la liste à jour)
+    byebug
+    Event.find_by(id: params[:id]).destroy
+
+    puts "@"*60
+    puts "attention ca va supprimer !"
+    flash[:success] = "Ton gossip a bien été supprimé."
+    puts "@"*60
+    redirect_to root_path
   end
 
 
